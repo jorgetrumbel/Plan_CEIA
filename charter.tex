@@ -7,17 +7,13 @@ codirector, % Uncomment to add a codirector to the title page
 
 
 % El títulos de la memoria, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \ttitle
-\titulo{Título del proyecto} 
+\titulo{Sistema flexible de visión industrial} 
 
 % Nombre del posgrado, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \degreename
-\posgrado{Carrera de Especialización en Sistemas Embebidos} 
-%\posgrado{Carrera de Especialización en Internet de las Cosas} 
-%\posgrado{Carrera de Especialización en Intelegencia Artificial}
-%\posgrado{Maestría en Sistemas Embebidos} 
-%\posgrado{Maestría en Internet de las cosas}
+\posgrado{Maestría en Inteligencia Artificial Embebida} 
 
 % Tu nombre, se puede usar el cualquier lugar del documento con el comando \authorname
-\autor{Nombre del Autor} 
+\autor{Alejandro Virgillo} 
 
 % El nombre del director y co-director, se puede usar el cualquier lugar del documento con el comando \supname y \cosupname y \pertesupname y \pertecosupname
 \director{Nombre del Director}
@@ -27,8 +23,8 @@ codirector, % Uncomment to add a codirector to the title page
 \pertenenciaCoDirector{FIUBA}
 
 % Nombre del cliente, quien va a aprobar los resultados del proyecto, se puede usar con el comando \clientename y \empclientename
-\cliente{Nombre del cliente}
-\empresaCliente{Empresa del cliente}
+\cliente{A3 Engineering}
+\empresaCliente{A3 Engineering}
 
 % Nombre y pertenencia de los jurados, se pueden usar el cualquier lugar del documento con el comando \jurunoname, \jurdosname y \jurtresname y \perteunoname, \pertedosname y \pertetresname.
 \juradoUno{Nombre y Apellido (1)}
@@ -38,9 +34,9 @@ codirector, % Uncomment to add a codirector to the title page
 \juradoTres{Nombre y Apellido (3)}
 \pertenenciaJurTres{pertenencia (3)}
  
-\fechaINICIO{30 de abril de 2021}		%Fecha de inicio de la cursada de GdP \fechaInicioName
-\fechaFINALPlan{18 de junio de 2021} 	%Fecha de final de cursada de GdP
-\fechaFINALTrabajo{15 de mayo de 2022}	%Fecha de defensa pública del trabajo final
+\fechaINICIO{4 de marzo de 2023}		%Fecha de inicio de la cursada de GdP \fechaInicioName
+\fechaFINALPlan{18 de abril de 2023} 	%Fecha de final de cursada de GdP
+\fechaFINALTrabajo{4 de octubre de 2023}	%Fecha de defensa pública del trabajo final
 
 
 \begin{document}
@@ -92,7 +88,7 @@ Buenos Aires, \fechaInicioName
 
 \vspace{2cm}
 
-Por medio de la presente se acuerda con el Ing. \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', consistirá esencialmente en \textcolor{red}{la implementación de un prototipo de un sistema de control de temperatura de un calefón}, y tendrá un presupuesto preliminar estimado de \textcolor{red}{600} h de trabajo y \textcolor{red}{\$XXX}, con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública \fechaFinalName.
+Por medio de la presente se acuerda con el Ing. \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', consistirá esencialmente en la implementación de una interfaz y elementos de visión de máquina que permitan programar verificaciones de calidad en procesos industriales, y tendrá un presupuesto preliminar estimado de 600 h de trabajo y U\$D 6000, con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública \fechaFinalName.
 
 Se adjunta a esta acta la planificación inicial.
 
@@ -115,52 +111,34 @@ Se adjunta a esta acta la planificación inicial.
 \section{1. Descripción técnica-conceptual del proyecto a realizar}
 \label{sec:descripcion}
 
+En la actualidad, las empresas industriales suelen realizar inspecciones en sus líneas de producción para garantizar la calidad de sus productos. Una de las técnicas más empleadas es la inspección visual, que permite determinar si una pieza cuenta con defectos y realizar acciones acorde. Con el avance de la tecnología este proceso se ha logrado automatizar con el uso de sistemas de visión. Estos permiten realizar revisiones más precisas que las que puede hacer una persona y sobre el 100\% de las piezas.
 
-\begin{consigna}{red} % El bloque "consigna" se usa para poner texto en rojo y dar una pequeña ayuda sobre cómo completar la sección. En cada entrega parcial deben eliminar los comandos begin y end del bloque consigna de las secciones que hayan completado.
+Un sistema de visión industrial está conformado por cámaras, lentes, elementos de iluminación y dispositivos de procesamiento. Para trabajar dentro de una línea de manufactura automática tienen la capacidad de comunicarse con los controladores centrales del proceso, generalmente del tipo PLC (\textit{Programmable Logic Controller}), a través de señales discretas o protocolos de comunicación industrial. 
 
-El objetivo es que el lector en una o dos páginas entienda de qué trata el proyecto y cuáles son sus desafíos, cuál es la motivación para realizarlo y su importancia.
+En el mercado existe una gran oferta de sistemas de visión industriales que ofrecen interfaces de programación simples con diversas herramientas incorporadas para facilitar los trabajos de inspección. Suelen ser flexibles a la hora de seleccionar componentes de iluminación, lentes y cámaras, y tienen la capacidad de comunicarse con controladores industriales a través de señales discretas y diferentes protocolos de comunicación. Su problema radica en sus altos costos, que pueden ser prohibitivos para muchas aplicaciones.
 
-Se debe introducir el contexto del proyecto, el estado del arte en la temática, describir la propuesta de valor, cúal es el problema que atiende y cuál es la solución que se propone. Se debe dar una descripción funcional de la solución que incluya un diagrama en bloques.
+En lo que refiere al procesamiento de imágenes, los sistemas que se comercializan cuentan con un gran número de filtros, herramientas de detección y algoritmos de aprendizaje que se eligen según el problema a resolver. Las mismas consideraciones deben tenerse en cuenta a la hora de seleccionar el sensor, el lente y los elementos de iluminación, y también su disposición en el espacio. En general, este tipo de problemas suele ser complejo y requerir de un alto grado de ensayos previo a alcanzar el resultado deseado.
 
-Puede ser útil incluir en esta sección la respuesta a alguna de estas preguntas:
+En este proyecto se busca conseguir un sistema de visión que permita procesar imágenes para determinar si, en un proceso industrial de producción, ciertas piezas con las que se trabaja cumplen con algunas restricciones específicas de calidad. Este debe ser de bajo costo y poder controlar un sistema de iluminación, tomar información de una cámara, envíar señales a un PLC y ofrecer una interfaz de usuario para su programación y monitoreo. 
 
-\begin{itemize}
-	\item ¿Cuál es el contexto del proyecto, es un emprendimiento personal, un proyecto para una empresa, es parte del programa de vinculación con empresas del posgrado?
-	\item ¿Existen o aplican condiciones especiales al proyecto, financiamiento de algún programa público o privado, acuerdos de confidencialidad, acuerdos sobre la propiedad intelectual de los entregables u otros?
-	\item ¿Cómo se compara la solución propuesta con el estado del arte en el campo de aplicación? ¿En qué aspectos destaca?
-	\item ¿Ayuda a la explicación si se incluye un lienzo Canvas del Modelo de Negocio?
-	\item ¿En qué estado del ciclo de vida está la solución que se propone?
-	\item ¿Cuáles son las características del cliente (el adoptante de los entregables del proyecto) qué valora, qué necesita?
-	\item ¿Por dónde pasa la innovación?
-\end{itemize}
-
-La descripción técnica-conceptual \textbf{debe incluir al menos un diagrama en bloques del sistema} y descripción funcional de la solución propuesta.
-
-Las figuras se deben mencionar en el texto ANTES de que aparezcan con una frase como la siguiente: ``En la Figura \ref{fig:diagBloques} se presenta el diagrama en bloques del sistema. Se observa que...''.  La regla es que las figuras nunca pueden ir antes de ser mencionadas en el texto, porque sino el lector no entiende por qué de pronto aparece una figura.
+En la Figura \ref{fig:diagBloques} se muestra un diagrama en bloques del sistema a implementar. El proyecto abarca el diseño del software de la parte que aparece denominada como controlador y su interacción con los demás bloques. También se incluye el diseño y fabricación del bloque que se denomina Adaptación IO, que corresponde a un circuito eléctrico de acondicionamiento de señales. La selección de periféricos y de interfaz física es parte del proyecto. 
 
 \begin{figure}[htpb]
 \centering 
-\includegraphics[width=.5\textwidth]{./Figuras/diagBloques.png}
+\includegraphics[width=.8\textwidth]{./Figuras/TPF_CEIA_diagrama_bloques.png}
 \caption{Diagrama en bloques del sistema}
 \label{fig:diagBloques}
 \end{figure}
 
-\vspace{25px}
+Se plantea usar una placa controladora Raspberry Pi, que es de fácil acceso y cuenta con muchas herramientas para conectar cámaras y pantallas. Sobre esta se busca diseñar y construir otra plaqueta que aísle eléctricamente y transforme los niveles de tensión de las señales discretas para poder interactuar con un PLC.
 
-El tamaño de la tipografía en TODAS las figuras debe ser adecuado para que NO pase lo que ocurre acá, donde el lector debe esforzarse para poder leer el texto. Los colores usados en el diagrama deben ser adecuados, tal que ayuden a comprender mejor el diagrama, preferentemente en la gama de colores pastel.
-\end{consigna}
+El proyecto también involucra el diseño e implementación de una interfaz gráfica, a través de la cual se puedan programar las distintas herramientas de visión, los filtros de imagen, los algoritmos de reconocimiento y el envío de señales.
+
+El proyecto se encará como un trabajo personal junto a la organización A3 Engineering. Mediante un acuerdo con la empresa Cambre ICyFSA, se plantea ensayar el producto obtenido en algunos de sus procesos industriales para controlar la calidad de los productos según las especificaciones correspondientes.
+
 
 \section{2. Identificación y análisis de los interesados}
 \label{sec:interesados}
-
-\begin{consigna}{red} % este comando se debe borrar para la entrega, junto con la contraparte \end{consigna}{red} 
- 
-\textbf{Nota importante:} borrar esto y todas las consignas en color rojo antes de entregar este documento). Esto se hace eliminando el par de comandos que forman el bloque consigna, \verb!\begin{consigna}{red}! y \verb!\end{consigna}{red}! del código. 
- 
-Es inusual que una misma persona esté en más de un rol, incluso en proyectos chicos. Si se considera que una persona cumple dos o más roles, entonces solo dejarla en el rol más importante. 
-
-Por ejemplo, si una persona es Cliente pero también colabora u orienta, dejarla solo como Cliente. Si una persona es el Responsable, no debe ser colocado también como miembro del equipo.
-
 
 \begin{table}[ht]
 %\caption{Identificación de los interesados}
@@ -169,46 +147,27 @@ Por ejemplo, si una persona es Cliente pero también colabora u orienta, dejarla
 \hline
 \rowcolor[HTML]{C0C0C0} 
 Rol           & Nombre y Apellido & Organización 	& Puesto 	\\ \hline
-Auspiciante   &                   &              	&        	\\ \hline
-Cliente       & \clientename      &\empclientename	&        	\\ \hline
-Impulsor      &                   &              	&        	\\ \hline
-Responsable   & \authorname       & FIUBA        	& Alumno 	\\ \hline
-Colaboradores &                   &              	&        	\\ \hline
+Auspiciante   & Alejandro Virgillo & A3 Engineering	& Líder de proyecto	 \\ \hline
+Cliente       & Alejandro Virgillo & A3 Engineering	&  Líder de proyecto \\ \hline
+Impulsor      & Sector de Automatización & Cambre             	& -       	\\ \hline
+Responsable   & Alejandro Virgillo  & FIUBA        	& Alumno 	\\ \hline
+Colaboradores & Equipo de Ingeniería & Cambre      	& Ingenieros   	\\ \hline
 Orientador    & \supname	      & \pertesupname 	& Director Trabajo final \\ \hline
-Equipo        & miembro1 \newline 
-				miembro2          &              	&        	\\ \hline
-Opositores    &                   &              	&        	\\ \hline
-Usuario final &                   &              	&        	\\ \hline
+Usuario final & Equipo de Armado  & Cambre         	& Operarios       	\\ \hline
+Usuario final & Equipo de Automatización  & Cambre  & Técnicos       	\\ \hline
 \end{tabularx}
 \end{table}
 
-El Director suele ser uno de los Orientadores.
-
-No dejar celdas vacías; si no hay nada que poner en una celda colocar un signo ``-''.
-
-No dejar filas vacías; si no hay nada que poner en una fila entonces eliminarla.
-
-Es deseable listar a continuación las principales características de cada interesado.
- 
-Por ejemplo:
 \begin{itemize}
-	\item Auspiciante: es riguroso y exigente con la rendición de gastos. Tener mucho cuidado con esto.
-	\item Equipo: Juan Perez, suele pedir licencia porque tiene un familiar con una enfermedad. Planificar considerando esto.
-	\item Orientador: María Gómez va a poder ayudar mucho con la definición de los requerimientos.
+	\item Colaboradores: El equipo de ingeniería de Cambre puede dar lineamientos de problemas que tengan hoy con sus sistemas de visión en planta.
+	\item Orientador: ESCRIBIR ACA ALGO
+	\item Usuario final: Es importante ir ensayando los prototipos con los usuarios finales para obtener feedback del dispositivo.
 \end{itemize}
-
-\end{consigna} % este comando se debe borrar para la entrega, junto con la contraparte \begin{consigna}{red}
-
-
 
 \section{3. Propósito del proyecto}
 \label{sec:proposito}
 
-\begin{consigna}{red}
-¿Por qué se hace el proyecto? ¿Qué se quiere lograr? 
-
-Se recomienda que sea solo un párrafo que empiece diciendo ``El propósito de este proyecto es...''.
-\end{consigna}
+El propósito de este proyecto es obtener un sistema de visión flexible con una interfaz de programación básica que ofrezca algunas de las herramientas más comunes presentes en sistemas comerciales, pero a un costo significativamente menor.
 
 \section{4. Alcance del proyecto}
 \label{sec:alcance}
